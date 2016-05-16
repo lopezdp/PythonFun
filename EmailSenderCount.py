@@ -19,16 +19,17 @@ fh = open(fname)
 
 counts = dict()
 
+print 'The most prolific sender of emails and the Qty of emails sent is:\n'
+
 for line in fh:
     line = line.rstrip()
-    if not line.startswith('From '): continue
+    if not line.startswith('From: '): continue
     words = line.split()
-    #print words
-    for word in words[1]:
-        if words[1] not in counts :
-            counts[words[1]] = 1
-        else:
-            counts[words[1]] += 1
+    
+    if words[1] not in counts:
+        counts[words[1]] = 1
+    else:
+        counts[words[1]] += 1
             
 for key in counts:
         print key, counts[key]

@@ -16,6 +16,7 @@
 fname = raw_input("Enter file:")
 if len(fname) < 1 : fname = "mbox-short.txt"
 fh = open(fname)
+tot = 0
 
 counts = dict()
 
@@ -32,4 +33,8 @@ for line in fh:
         counts[words[1]] += 1
             
 for key in counts:
-        print key, counts[key]
+    if counts[key] > tot:
+        tot = counts[key]
+for key in counts:
+    if counts[key] == tot:
+            print key, counts[key]

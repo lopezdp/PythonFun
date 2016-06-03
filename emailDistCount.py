@@ -22,8 +22,23 @@ for line in fh:
     line = line.rstrip() #strips each line of the \n charachter
     if not line.startswith('From '): continue #disregards lines with no 'From ' and continues
     words = line.split() #creates a lists that contains each word in the 'From ' line
-    w5 = words[5] #isolates 
-    w5SPL = w5[0:2]
-    counts[w5SPL] = counts.get(w5SPL, 0) + 1
+    w5 = words[5] #isolates the time we are interested in
+    w5SPL = w5[0:2] #isolates the hour of interest
+    #counts the distribution of each hour and puts in count{}
+    counts[w5SPL] = counts.get(w5SPL, 0) + 1 
 
-print counts
+#print counts
+#create a list to store and sort dict() items
+lst = list()
+
+#loop through dictionary and append to lst
+for k, v in counts.items():
+    lst.append((v, k))
+
+#reverse sort lst
+lst.sort(reverse=True)
+#print lst
+
+#print lst
+for v, k in lst:
+    print k, v

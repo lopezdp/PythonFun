@@ -33,12 +33,12 @@ lst = list()
 
 #loop through dictionary and append to lst
 for k, v in counts.items():
-    lst.append((v, k))
+    lst.append((k, v))
 
 #reverse sort lst
-lst.sort(reverse=True)
+lst.sort()
 #print lst
 
 #print lst
-for v, k in lst:
+for k, v in lst:
     print k, v

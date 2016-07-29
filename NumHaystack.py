@@ -3,10 +3,16 @@
 
 import re
 
-file = open('\pythonDrChuckTestData.txt')
+file = open('C:\Users\David\OneDrive\Documents\Python\RandomScripts\pythonDrChuckTestData.txt')
+
+sum = 0
+
 for line in file:
 	line = line.rstrip()
 	num = re.findall('[0-9]+', line)
-	print num
+	for n in num:
+		sum += int(n)
+
+print sum
 
 

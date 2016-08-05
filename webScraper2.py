@@ -14,35 +14,36 @@ import urllib
 from BeautifulSoup import *
 
 # prompt user for page source
-url = "http://python-data.dr-chuck.net/known_by_Fikret.html" #raw_input('Enter link to page: ')
-html = urllib.urlopen(url).read()
-pgContent = BeautifulSoup(html)
+url = raw_input('Enter link to page: ')
+#html = urllib.urlopen(url).read()
+#pgContent = BeautifulSoup(html)
 
 index = 0
 pos = 0
 lst = []
 
 # prompt user for starting location & iterations
-sPos = 3 #raw_input('Enter the starting position: ')
-repeat = 4 #raw_input('How many repetitions?: ')
-
-# Retrieve all of the anchor tags and append links to lst[]
-tags = pgContent('a')
-for tag in tags:
-	lst.append(tag.get('href', None))
-	index = index + 1
-
-url = lst[sPos - 1]
-print url
-
-html = urllib.urlopen(url).read()
-pgContent = BeautifulSoup(html)
-tags = pgContent('a')
+sPos = int(raw_input('Enter the starting position: '))
+repeat = int(raw_input('How many repetitions?: '))
 
 
-	
 
 for link in range(0,repeat):
-	print pos + 1
-	pos = pos + 1
+	# Retrieve all of the anchor tags and append links to lst[]
+	html = urllib.urlopen(url).read()
+	pgContent = BeautifulSoup(html)
+	tags = pgContent('a')
+	for tag in tags:
+		lst.append(tag.get('href', None))
+		index = index + 1
+	# assign link to follow to url
+	url = lst[sPos - 1]
+	print url
+	# clear list
+	lst = []
+
+
+
+
+
 	

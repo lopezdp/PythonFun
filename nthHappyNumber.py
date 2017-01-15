@@ -45,3 +45,51 @@ def isHappyNumber(n):
 
 		return happyNumBool
 
+def nthHappyNumber(n): 
+	# ****n == sequence and != to to a happy num
+	# input is sequence number 2
+	# create loop and call function to create sum of squares 
+	# count each loop that finds a happynum
+	# if sum of squares == happy num then append to list through sequence num = 2
+	# create all happy nums through sequence 2
+	# return happy num pertaining through sequence 2
+
+	currentInt = 0 # 
+	currentSequence = 0 # 
+	foundAHappyNum = 0 # 
+
+	happyLst = list() # 
+
+	while(currentSequence <= n): #
+
+		if(isHappyNumber(currentInt)): #
+
+			foundAHappyNum = currentInt #
+			happyLst.append(currentInt) #
+			currentInt += 1 #
+			currentSequence += 1 #
+
+			if(currentSequence == n): # 
+				break #
+
+		elif(not(isHappyNumber(currentInt))): #
+			currentInt += 1 #
+
+	return happyLst[n-1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+

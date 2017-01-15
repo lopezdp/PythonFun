@@ -54,28 +54,24 @@ def nthHappyNumber(n):
 	# create all happy nums through sequence 2
 	# return happy num pertaining through sequence 2
 
-	currentInt = 0 # 
-	currentSequence = 0 # 
-	foundAHappyNum = 0 # 
+	currentInt = 0 # Place holder for the current integer to test
+	currentSequence = 0 # Place holder for the current sequence of HappyNums Found
+	foundAHappyNum = 0 # Holds the most recent HappyNum found
 
-	happyLst = list() # 
+	happyLst = list() # list of all happyNums found in a given sequence
 
-	while(currentSequence <= n): #
+	while(currentSequence <= n): # tests for the current sequence to be tested
+		if(isHappyNumber(currentInt)): # verifies if currentInt is a happyNum
+			foundAHappyNum = currentInt # holds any HappyNum found in a given sequence
+			happyLst.append(foundAHappyNum) # adds all happyNums to a list to access later
+			currentInt += 1 # increments the currentInt being tested
+			currentSequence += 1 # increments the currentSequence of happyNums that have been found
+			if(currentSequence == n): # inefficient redundancy
+				break # breaks out of loop if sequence is == to n sequence we are looking for
+		elif(not(isHappyNumber(currentInt))): # if isHappyNumber is False then executes next codeBlock
+			currentInt += 1 # increments currentInt to be tested next
 
-		if(isHappyNumber(currentInt)): #
-
-			foundAHappyNum = currentInt #
-			happyLst.append(currentInt) #
-			currentInt += 1 #
-			currentSequence += 1 #
-
-			if(currentSequence == n): # 
-				break #
-
-		elif(not(isHappyNumber(currentInt))): #
-			currentInt += 1 #
-
-	return happyLst[n-1]
+	return happyLst[n-1] # returns the happyNum for the given sequence we are looking for
 
 
 
